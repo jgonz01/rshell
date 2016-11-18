@@ -1,0 +1,17 @@
+test -e Test.h              #(TRUE) every file
+test -f Test.h              #(TRUE) a regular file
+test -d Test.h              #(FALSE) not a directory
+mkdir taco                  #making directory
+test -e taco                #(TRUE) is a directory
+test -f taco                #(FALSE) not a file
+test -d taco                #(TRUE)
+test -e /Command.h          #(FALSE)
+test -e src/taco            #(TRUE)
+test Command.h              #(TRUE) automatic flag is “-e”
+test main.cpp && echo name  #(TRUE) and echos name, flag is “-e”
+test main.cpp || echo llama #(FALSE) and does not echo llama
+test    Command.h      &&        echo name      #(TRUE) echos name and ignore extraneous spaces
+test -d main.cpp && echo name                   #(FALSE) and doesn’t echo
+test -d Command.h || echo name                  #(FALSE) and echos name
+test -e Test.h && echo name && test -e main.cpp #(TRUE) echos name and (TRUE)
+[ -e Test.h ] && echo name && test main.cpp     #(TRUE) echos name and (TRUE)
