@@ -15,3 +15,23 @@ test -d main.cpp && echo name                   #(FALSE) and doesn’t echo
 test -d Command.h || echo name                  #(FALSE) and echos name
 test -e Test.h && echo name && test -e main.cpp #(TRUE) echos name and (TRUE)
 [ -e Test.h ] && echo name && test main.cpp     #(TRUE) echos name and (TRUE)
+
+[ -e Test.h ]               #(TRUE)
+[ -f Test.h ]               #(TRUE)
+[ -d Test.h ]               #(FALSE)
+[ -e Test.h                 #perror no ending brace, not successful
+[ -e Test.h       ]         #(TRUE) extra spaces work
+[ -e taco ]                 #(FALSE) not a valid file/directory
+Mkdir taco                  #making directory
+[ -e taco ]                 #(TRUE) is a directory
+[ -f taco  ]                #(FALSE) not a file
+[ -d taco ]                 #(TRUE)
+[-e /Command.h ]            #(FALSE) no extraneous braces allowed
+[ -e src/taco]              #(TRUE) checks if taco exists
+[ Command.h ]               #(TRUE) automatic flag is “-e”
+[ main.cpp ] && echo name   #(TRUE) and echos name, flag is “-e”
+[ main.cpp ] || echo llama  #(FALSE) and does not echo llama
+[    Command.h  ]    &&        echo name       #(TRUE) echos name and ignore extraneous spaces
+[ -d main.cpp ] && echo name                   #(FALSE) and doesnt echo
+[ -d Command.h ] || echo name                  #(FALSE) and echos name
+[ -e Test.h ] && echo name && test -e main.cpp #(TRUE) echos name and uses other “test”
