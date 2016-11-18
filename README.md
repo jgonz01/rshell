@@ -25,6 +25,23 @@ Description of Command Shell
 
 + Displays error messages if failed execution at any point
 
++ Added test command implementation, runs with keyword "test" or the bracket symbols as well
+
+  + flag "-e" to check if the file or directory exists (default flag)
+
+  + flag "-f" to check if the file or directory exists and is a regular file
+
+  + flag "-d" to check if the file or directory exists and is a directory
+
+  + example: "test -e Test.h" or "[ Command.h ]
+
+  + Command chaining is compatible
+    - "test -e main.cpp && echo taco"
+
++ Use of precedence using parentheses
+  - Separate sets can be used "(echo hello && echo name) || (echo world && echo llama)"
+  - Nested parentheses can be used "(echo hey && (echo this || echo yes))"
+
 - Exits the terminal using the command 'exit'
 
 
