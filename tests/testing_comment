@@ -7,3 +7,14 @@ echo simple || echo yes && echo turtles #comment
 echo too much work #mkdir taco
 echo another test#nospace
 echo one more #  spaces
+
+( (echo a && echo b) || (echo c || echo d) ) #&& ( (echo e && echo f) || (echo g || echo h) )
+(echo a) || (echo b) #TESTING
+#(echo a) && (echo b)
+(echo a && echo b) #&& echo c
+(ps && ls) #|| (echo a && echo b && echo c)
+(echo a && echo b && echo c) && (echo d && echo e)     #TEST
+###(echo a) && (echo b) && (echo c) 
+(echo a) #TEST
+
+exit
