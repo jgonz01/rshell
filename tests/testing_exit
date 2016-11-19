@@ -4,4 +4,16 @@ echo dolphin ; exit # should exit regardless
 echo oppossum || exit # not exit
 exit # simple command
 echo another && echo one more || echo two more ; exit
+
+test -e Test.h && exit # should exit
+test -e Llama && exit # should exit
+test -f Test.h || exit # should not exit
+(echo a && echo b) && echo c && exit # should exit
+echo a && (echo b && echo c) || exit # should not exit
+(echo a && echo b && echo c) && (echo d && echo e) || exit
+(echo a || echo b || exit) || (echo d || exit)  # should not exit
+test -d main.cpp && echo name && exit           #(FALSE) and doesn’t echo should not exit
+test -d Command.h || echo name && exit          #(FALSE) and echos name should exit
+test -e Test.h && echo name && test -e main.cpp && exit   #(TRUE) echos name and (TRUE) and exits
+[ -e Test.h ] && echo name && test main.cpp && exit       #(TRUE) echos name and (TRUE) and exits
 exit
