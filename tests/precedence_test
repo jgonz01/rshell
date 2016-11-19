@@ -1,0 +1,20 @@
+( (echo a && echo b) || (echo c || echo d) ) && ( (echo e && echo f) || (echo g || echo h) )
+(echo a) || (echo b)
+(echo a) && (echo b)
+(echo a) ; (echo b)
+(echo a && echo b) && echo c
+echo a && (echo b && echo c)
+(ps && ls) || (echo a && echo b && echo c)
+(echo a && echo b && echo c) && (echo d && echo e)
+(echo a || echo b || echo c) || (echo d || echo e)
+(echo a || echo b || echo c) ; (echo d || echo e) 
+(echo a || echo b || echo c) && (echo d || echo e) 
+(echo a) && (echo b) && (echo c) 
+echo a || (ls -R && ls -a) || echo b
+(echo a) || (echo b) && (echo c)
+(echo a) && (echo b) || (echo c)
+(echo a)
+(echo a && ls -a) || echo b
+((ls) || (ps)) && mkdir test && echo a
+(ls && rm -r test) && echo a
+exit
