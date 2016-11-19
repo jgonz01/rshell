@@ -17,4 +17,15 @@ echo one more #  spaces
 ###(echo a) && (echo b) && (echo c) 
 (echo a) #TEST
 
+#test -e Test.h 
+test -f Test.h  #TESTING
+test -e Test.h #&& echo name && test -e main.cpp 
+[ -e Test.h ] && echo name && test main.cpp  ####
+#[ -e Test.h ] 
+[ main.cpp ] #TEST|| echo llama  #TEST
+[    Command.h  ]    #&&        echo name   
+[ -d main.cpp ] && echo name      #TEST            
+[ -d Command.h ] || echo name             
+[ -e Test.h ] && echo name #&& test -e main.cpp
+
 exit
