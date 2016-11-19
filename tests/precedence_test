@@ -17,4 +17,9 @@ echo a || (ls -R && ls -a) || echo b
 (echo a && ls -a) || echo b
 ((ls) || (ps)) && mkdir test && echo a
 (ls && rm -r test) && echo a
+(test -e Test.h || echo b || test -d main.cpp) && ( test -f Test.h || echo e) 
+(test e main.cpp) && (echo b) && (test -e Command.h) #should not run
+test -e main.cpp || (ls -R && test -e Test.h) || test -e Command.h
+(test -f taco) || (echo b) && (echo c)
+(test -e main.cpp) && (test -f taco) || (test main.cpp)
 exit
