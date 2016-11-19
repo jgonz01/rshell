@@ -35,4 +35,5 @@ Mkdir taco                  #making directory
 [ -d main.cpp ] && echo name                   #(FALSE) and doesnt echo
 [ -d Command.h ] || echo name                  #(FALSE) and echos name
 [ -e Test.h ] && echo name && test -e main.cpp #(TRUE) echos name and uses other “test”
+[ -e Test.h && echo name ; exit                #First command not executed, second not executed, exits
 exit
