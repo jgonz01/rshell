@@ -27,3 +27,7 @@ echo A || cd test
 echo B ; cd test
 cd
 (echo A && cd test) && echo B
+cd llama && echo name #should not echo name
+cd llama || echo name #does echo name
+eco name && cd test #should not work, eco not recognized
+llama ; cd #goes back to home
