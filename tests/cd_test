@@ -1,1 +1,27 @@
+cd
+cd test
+cd
+cd -
+cd      -
+cd workspace
+cd -
+cd workspace/cs100/assn4/taco
+cd 
+cd workspace/cs100
+cd assn4/taco
+cd -
 
+
+Cd
+CD
+CD -
+cd /
+cd /test   /
+cd / /
+
+cd
+mkdir taco && cd test
+echo A && cd test && echo B
+echo A || cd test
+echo B ; cd test
+(echo A && cd test) && echo B
