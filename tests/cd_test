@@ -21,7 +21,9 @@ cd / /
 
 cd
 mkdir taco && cd test
+cd
 echo A && cd test && echo B
 echo A || cd test
 echo B ; cd test
+cd
 (echo A && cd test) && echo B
