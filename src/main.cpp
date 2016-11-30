@@ -5,7 +5,6 @@
 #include "Command.h"
 #include <string.h> 
 #include <unistd.h>
-#include "Test.h"
 using namespace std;
 
 int main(){
@@ -18,6 +17,9 @@ int main(){
         test = new Command();
         test->getInput();
         
+        if(test->syntax == true){
+            cout << "SYNTAX ERROR" << endl;
+        }
         if(test->checkEnter() != true){
             test->callConnectors();
         }
