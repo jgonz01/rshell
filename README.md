@@ -37,7 +37,7 @@ Description of Command Shell
 - Exits the terminal using the command 'exit'
 
 + Added cd command implementation
-  + may use cd, cd -, or cd <path>
+  + may use cd, cd -, or cd path
 
 # Known Bugs
 - The command following || is not executed if the first command is not recognize 
