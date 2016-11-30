@@ -15,8 +15,10 @@
 #include <stdio.h>
 #include <sys/stat.h>
 #include "Test.h"
+#include "Cd.h"
 using namespace std;
 class Test;
+class Cd;
 /*
 BASE: Abstract Base Class where Command and Connectors inherit from
 -flag1 stores whether or not the first command was successful
@@ -610,6 +612,11 @@ class Command : public Base {
         exitflag = false;
         commentflag = false;
         
+        //Current directory
+        // char buff[500];
+        char *pwd = getenv("PWD");
+        cout << pwd << ' ';
+        
         string s;
         cout << "$ ";
         getline(cin, s);
@@ -909,7 +916,7 @@ class Command : public Base {
                     }
                     ++flag0;
                 }
-                /* Next onnector is a comment */
+                /* Next connector is a comment */
                 else{ 
                     
                     /* Clear vector */
@@ -962,6 +969,26 @@ class Command : public Base {
         if(everyWord.at(0) == "exit"){
             exitflag = true;
             exit(0);
+        }
+        if(everyWord.at(0) == "cd"){
+            int cdSuccess;
+            if(everyWord.size() == 1){
+                Cd* command = new Cd();
+                cdSuccess = command->flagExecuted();
+            }
+            else{
+                Cd* command = new Cd(everyWord.at(1));
+                cdSuccess = command->flagExecuted();
+            }
+            
+            executed = true;
+            if(cdSuccess == 1){
+                flag1 = 1;
+            }
+            else{
+                flag1 = 0;
+            }
+            
         }
         /*Checking to see if call to Test command class is needed*/
         if(everyWord.at(0) == "test" || everyWord.at(0) == "["){
